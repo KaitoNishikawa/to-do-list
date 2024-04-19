@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    padding: 25px;
+    background-color: #89BE7E;
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    font-size: 30px;
+    font-family: Arial;
+    font-weight: 800;
+}
+
+img{
+    height: 35px;
+    margin-top: 4px;
+}
+
+#content{
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /* height: 100%; */
+}
+
+#side-bar{
+    padding: 10px;
+    /* height: 100%; */
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
