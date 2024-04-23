@@ -1,0 +1,96 @@
+#main{
+    padding: 20px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-list-add-button{
+    margin-bottom: 10px;
+    background-color: #E8E8E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 45px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#todo-list-add-button-plus{
+    margin: 0 7px 0 0;
+    font-size: 22px;
+    /* font-weight: bold; */
+}
+
+#todo-list-add-button:hover{
+    transform: scale(1.02);
+    box-shadow: 3px 3px 3px #A9A9A9;
+    cursor: pointer;
+}
+
+.todo-item:hover{
+    transform: scale(1.01);
+    box-shadow: 3px 3px 3px #A9A9A9;
+}
+
+.todo-item{
+    padding: 0 15px 0 15px;
+    border-radius: 7px;
+    /* width: 100%; */
+    height: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    background-color: #E8E8E8;
+}
+
+#todo-item-right{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.todo-item-img{
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.todo-item-img:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#checkbox{
+    height: 0.9em;
+    width: 0.9em;
+    border: 2px solid #BE7E89;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#checkbox-checked{
+    height: 0.9em;
+    width: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #BE7E89;
+    background-color: #BE7E89;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#checkbox-img{
+    height: 1em;
+}
+
+
+
+
+

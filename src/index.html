@@ -7,21 +7,49 @@
 </head>
 <header>
     <div>Todo List</div>
-    <img src="./img/checked.png">
+    <img src="./img/checked.png" id="checkedImg">
 </header>
 <body>
     <div id="content">
         <div id="side-bar">
-            <button class="side-bar-button" id="home-button">Home</button>
-            <button class="side-bar-button" id="today-button">Today</button>
-            <button class="side-bar-button" id="week-button">Week</button>
-            <div id="project">
-                <div id="project-header">Projects</div>
-            </div>
-            <button class="side-bar-button" id="notes-button">Notes</button>
-            <button id="add-button">+</button>
+            <button class="side-bar-button" id="home-button"><img class="side-bar-icons" src="./img/home.png">Home</button>
+            <button class="side-bar-button" id="today-button"><img class="side-bar-icons" src="./img/day.png">Today</button>
+            <button class="side-bar-button" id="week-button"><img class="side-bar-icons" src="./img/week.png">Week</button>
+            <div id="project-header">Projects:</div>
+            <button class="side-bar-button" id="add-project-button"><span id="project-add-button-plus">+</span>Add Project</button>
         </div>
-        <div id="main"></div>
+        <div id="main">
+            <button id="todo-list-add-button"><span id="todo-list-add-button-plus">+</span>Add Task</button>
+            <div class="todo-item">
+                <div id="checkbox-checked"><img id="checkbox-img" src="./img/check.png"></div>
+                <span class="todo-item-title">do the dishes</span>
+                <span id="todo-item-right">
+                    <span class="todo-item-date">Apr 19th</span>
+                    <img src="./img/edit.png" id="editImg" class="todo-item-img">
+                    <img src="./img/trash.png" id="trashImg" class="todo-item-img">
+                </span>                
+            </div>
+        </div>
     </div>
+    
+    <form class="addModal" id="add-Modal" action="/" method="GET" name="">
+        <h1>Add new task</h1>
+        <input type="text" name="title" id="title-input" class="text-input" placeholder="Title" maxlength="100" required>
+        <div>
+            <span class="input-labels">Due Date:</span>
+            <input type="date" id="date-input" name="date" value="2018-07-22" required>
+        </div>
+        <div>
+            <span class="input-labels">Priority:</span>
+            <input type="radio" id="low-priority" class="radio-buttons" name="priority" required>
+            <label for="low-priority" id="low-priority-label">LOW</label>
+            <input type="radio" id="med-priority" class="radio-buttons" name="priority" required>
+            <label for="med-priority" id="med-priority-label">MEDIUM</label>
+            <input type="radio" id="high-priority" class="radio-buttons" name="priority" required>
+            <label for="high-priority" id="high-priority-label">HIGH</label>
+        </div>
+        <button id="submit-button" type="submit">Add</button>
+    </form>
+    <div id="overlay" class=""></div>
 </body>
 </html>

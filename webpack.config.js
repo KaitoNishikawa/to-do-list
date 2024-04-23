@@ -8,7 +8,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             title: 'Todo List',
-            filename: 'index.html'
+            filename: 'index.html',
         })
     ],
     output: {
