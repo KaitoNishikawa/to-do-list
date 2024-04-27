@@ -27,7 +27,7 @@
 
 .side-bar-button:hover{
     cursor: pointer;
-    background-color: #C4C4C4;
+    background-image: linear-gradient(rgb(0 0 0/15%) 0 0)
 }
 
 #project-add-button-plus{
@@ -52,3 +52,54 @@
     height: 1.1em;
     /* margin-top: 4px; */
 }
+
+#add-project-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#name-input{
+    width: 100%;
+    height: 40px;
+    padding: 0 0 0 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#name-input:focus{
+    outline: none;
+}
+
+#add-project-buttons-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-project-buttons{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.add-project-buttons:hover{
+    cursor: pointer;
+    background-image: linear-gradient(rgb(0 0 0/15%) 0 0)
+}
+
+#project-add-button{
+    background-color: #9AFF91;
+}
+
+#project-cancel-button{
+    background-color: #FF9191;
+}
+

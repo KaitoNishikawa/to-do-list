@@ -1,4 +1,4 @@
-#add-Modal{
+.addModal{
     width: 300px;
     position: fixed;
     top: 50%;
@@ -14,13 +14,13 @@
     gap: 25px;
 }
 
-#add-Modal.active{
+.addModal.active{
     transform: translate(-50%, -50%) scale(1);
 }
 
-#add-Modal::backdrop{
+/* .addModal::backdrop{
     background-color: rgba(0, 0, 0, 0.2)
-}
+} */
 
 #overlay{
     position: fixed;
@@ -38,7 +38,7 @@
     pointer-events: all;
 }
 
-h1{
+h2{
     margin: 0;
     font-size: 22px;
 }

@@ -14,6 +14,6 @@ import UI from './UI.js'
 //     addTaskButton.addEventListener('click', console.log('hello'))
 // });
 
-document.addEventListener("DOMContentLoaded", UI.loadHomepage)
+document.addEventListener("DOMContentLoaded", UI.initButtons())
 
 

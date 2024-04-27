@@ -5,6 +5,10 @@
     gap: 10px;
 }
 
+h1{
+    margin: 0;
+}
+
 #todo-list-add-button{
     margin-bottom: 10px;
     background-color: #E8E8E8;
@@ -38,15 +42,26 @@
 }
 
 .todo-item{
-    padding: 0 15px 0 15px;
+    margin-bottom: 10px;
+    padding: 0 15px 0 0;
     border-radius: 7px;
     /* width: 100%; */
+    overflow: hidden;
     height: 40px;
     display: flex;
     justify-content: left;
     align-items: center;
     gap: 10px;
     background-color: #E8E8E8;
+}
+
+.color-bar{
+    min-width: 7px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 100%;
+    background-color: #25840e;
 }
 
 #todo-item-right{
