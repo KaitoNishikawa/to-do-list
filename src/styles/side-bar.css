@@ -16,6 +16,7 @@
 
 .side-bar-button{
     padding-left: 15px;
+    padding-right: 15px;
     width: 100%;
     height: 40px;
     border-radius: 8px;
@@ -34,7 +35,7 @@
     margin-bottom: 2px;
     font-size: 24px;
     font-weight: bold;
-    margin-right: 8px;
+    margin-right: 12px;
 }
 
 #add-project-button{
@@ -45,12 +46,34 @@
 
 .side-bar-icons{
     height: 0.9em;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
-.file-icon{
+/* .file-icon{
     height: 1.1em;
-    /* margin-top: 4px; */
+    margin-top: 4px;
+} */
+
+#project-container{
+    width: 100%;
+}
+
+.project-button{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.project-button-x{
+    margin-left: auto;
+    margin-top: 2px;
+    font-weight: bold;
+    font-size: 22px;
+    visibility: hidden;
+}
+
+.project-button-x:hover{
+    font-size: 27px;
 }
 
 #add-project-container{

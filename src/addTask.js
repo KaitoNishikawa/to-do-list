@@ -24,17 +24,7 @@ export default class addTask{
 
     static createTaskElement(task){
         const container = document.querySelector('#todo-items-container')
-        // container.innerHTML += ` 
-        // <div class="todo-item">
-        //         <div class="color-bar" style="background-color:${task.priorityColor()}"></div>
-        //         <div id="checkbox-checked"></div>
-        //         <span class="todo-item-title">${task.getName()}</span>
-        //         <span id="todo-item-right">
-        //             <span class="todo-item-date">${task.formattedDate()}</span>
-        //             <img src="./img/edit.png" id="editImg" class="todo-item-img">
-        //             <img src="./img/trash.png" id="trashImg" class="todo-item-img">
-        //         </span>                
-        // </div>`
+        
         let todoItem = document.createElement('div')
         todoItem.classList.add('todo-item')
 
