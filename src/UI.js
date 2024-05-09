@@ -197,7 +197,7 @@ export default class UI{
         input.name = 'name';
         input.id = 'name-input';
         input.placeholder = 'Project Name';
-        input.maxLength = 20;
+        input.maxLength = 10;
         input.required = true;
 
         let buttonsContainer = document.createElement('div');
@@ -430,7 +430,7 @@ export default class UI{
     static populateMainDivWeek(){
         const container = document.querySelector('#todo-items-container')
         container.innerHTML = ''
-        
+
         let array = JSON.parse(localStorage.getItem('Home'))
         if(array === null) return 
         let date = new Date()
