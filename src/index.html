@@ -25,14 +25,17 @@
                 </div>
             </form> -->
             <div id="project-container">
-                <!-- <button class="side-bar-button project-button"><img src="./img/list.png" class="side-bar-icons" id="list-icons">Hello<span class="project-button-x">&times;</span></button> -->
+                <!-- <div class="button-wrapper">
+                    <button class="side-bar-button project-button" onclick="console.log('hello')"><img src="./img/list.png" class="side-bar-icons" id="list-icons">Hello<span class="project-button-x">&times;</span></button>
+                    <div class="unclickable-area"></div>
+                </div> -->
             </div>
         </div>
         <div id="main">
-            <h1>Home</h1>
+            <!-- <h1>Home</h1>
             <button id="todo-list-add-button"><span id="todo-list-add-button-plus">+</span>Add Task</button>
             <div id="todo-items-container">
-                <!-- <div class="todo-item">
+                <div class="todo-item">
                     <div class="color-bar"></div>
                     <div id="checkbox-checked"><img id="checkbox-img" src="./img/check.png"></div>
                     <span class="todo-item-title">do the dishes</span>
@@ -41,28 +44,47 @@
                         <img src="./img/edit.png" id="editImg" class="todo-item-img editImg">
                         <img src="./img/trash.png" id="trashImg" class="todo-item-img trashImg">
                     </span>                
-                </div> -->
-            </div>
+                </div>
+            </div> -->
         </div>
     </div>
 
     <form class="addModal" id="add-Modal" name="">
         <h2>Add new task</h2>
-        <input type="text" name="title" id="title-input" class="text-input" placeholder="Title" maxlength="20" required>
+        <input type="text" name="title" id="add-title-input" class="text-input" placeholder="Title" maxlength="20" required>
         <div>
             <span class="input-labels">Due Date:</span>
-            <input type="date" required id="date-input" name="date" value="2018-07-22">
+            <input type="date" required id="add-date-input" name="date" value="2018-07-22">
         </div>
         <div>
             <span class="input-labels">Priority:</span>
-            <input type="radio" id="low-priority" class="radio-buttons" name="priority"  value="low" required>
-            <label for="low-priority" id="low-priority-label">LOW</label>
-            <input type="radio" id="med-priority" class="radio-buttons" name="priority" value="mid">
-            <label for="med-priority" id="med-priority-label">MEDIUM</label>
-            <input type="radio" id="high-priority" class="radio-buttons" name="priority" value="high">
-            <label for="high-priority" id="high-priority-label">HIGH</label>
+            <input type="radio" id="add-low-priority" class="radio-buttons" name="priority"  value="low" required>
+            <label for="add-low-priority" id="add-low-priority-label">LOW</label>
+            <input type="radio" id="add-med-priority" class="radio-buttons" name="priority" value="mid">
+            <label for="add-med-priority" id="add-med-priority-label">MEDIUM</label>
+            <input type="radio" id="add-high-priority" class="radio-buttons" name="priority" value="high">
+            <label for="add-high-priority" id="add-high-priority-label">HIGH</label>
         </div>
-        <button id="submit-button" type="submit">Add</button>
+        <button id="add-submit-button" type="submit">Add</button>
+    </form>
+    
+    <form class="editModal" id="edit-Modal" name="">
+        <h2>Edit task</h2>
+        <input type="text" name="title" id="edit-title-input" class="text-input" placeholder="Title" maxlength="20" required>
+        <div>
+            <span class="input-labels">Due Date:</span>
+            <input type="date" required id="edit-date-input" name="date" value="2018-07-22">
+        </div>
+        <div>
+            <span class="input-labels">Priority:</span>
+            <input type="radio" id="edit-low-priority" class="radio-buttons" name="priority"  value="low" required>
+            <label for="edit-low-priority" id="edit-low-priority-label">LOW</label>
+            <input type="radio" id="edit-med-priority" class="radio-buttons" name="priority" value="mid">
+            <label for="edit-med-priority" id="edit-med-priority-label">MEDIUM</label>
+            <input type="radio" id="edit-high-priority" class="radio-buttons" name="priority" value="high">
+            <label for="edit-high-priority" id="edit-high-priority-label">HIGH</label>
+        </div>
+        <button id="edit-submit-button" type="submit">Confirm</button>
     </form>
     <div id="overlay" class=""></div>
 </body>

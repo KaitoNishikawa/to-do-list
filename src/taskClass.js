@@ -1,29 +1,9 @@
-export default class task{
-    constructor(name, dueDate, priority){
-        this.name = name
-        this.dueDate = dueDate
-        this.priority = priority
-        this.done = false
-    }
-
-    setDoneTrue(){
-        this.done = true
-    }
-
-    setDoneFalse(){
-        this.done = false
-    }
-
-    getName(){
-        return this.name
-    }
-
-    getDueDate(){
-        return this.dueDate
-    }
-
-    getPriority(){
-        return this.priority
+export default class taskClass{
+    constructor(task){
+        this.name = task.name
+        this.dueDate = task.dueDate
+        this.priority = task.priority
+        this.done = task.done
     }
 
     formattedDate(){

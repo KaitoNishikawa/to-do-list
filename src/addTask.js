@@ -1,16 +1,39 @@
-import task from './taskClass.js'
+import task from './JSONTask.js'
+import taskClass from './taskClass.js'
 import UI from './UI.js'
 
 export default class addTask{
     static addTaskToDOM(){
-        const values = this.getSubmitValues()
-        this.createTaskElement(values)
+        const values = this.getSubmitValuesAdd()
+        if(!this.addToLocalStorage(values)) return false
+        this.createTaskElement(new taskClass(values))
+        return true
     }
 
-    static getSubmitValues(){
-        const title = document.querySelector('#title-input')
-        const date = document.querySelector('#date-input')
-        let radio = document.getElementsByName('priority')
+    static editTaskInDOM(oldName){
+        const main = document.querySelector('#main')
+        const name = main.querySelector('h1').textContent
+
+        const values = this.getSubmitValuesEdit()
+        if(!this.editLocalStorage(values, oldName, name)) return false
+        if(name === 'Today'){
+            UI.populateMainDivToday()
+        }
+        else if(name === 'Week'){
+            UI.populateMainDivWeek()
+        }
+        else{
+            UI.populateMainDiv(name)
+        }
+        
+        return true
+    }
+
+    static getSubmitValuesAdd(){
+        const addModal = document.querySelector('#add-Modal')
+        const title = addModal.querySelector('#add-title-input')
+        const date = addModal.querySelector('#add-date-input')
+        let radio = addModal.querySelectorAll('.radio-buttons')
 
         for(let i = 0; i < radio.length; i++){
             if (radio[i].checked){
@@ -19,7 +42,105 @@ export default class addTask{
             }
         }
 
-        return new task(title.value, date.value, radio.value)
+        return new task(title.value, date.value, radio.value, false)
+    }
+
+    static getSubmitValuesEdit(){
+        const addModal = document.querySelector('#edit-Modal')
+        const title = addModal.querySelector('#edit-title-input')
+        const date = addModal.querySelector('#edit-date-input')
+        let radio = addModal.querySelectorAll('.radio-buttons')
+
+        for(let i = 0; i < radio.length; i++){
+            if (radio[i].checked){
+                radio = radio[i]
+                break
+            }
+        }
+
+        return new task(title.value, date.value, radio.value, false)
+    }
+
+    static checkIfLegal(task, array){
+        if(array === null) return true
+        for(let i = 0; i < array.length; i++){
+            if(array[i].name === task.name){
+                return false
+            } 
+        }
+        return true
+    }
+
+    static addToLocalStorage(values){        
+        const main = document.querySelector('#main')
+        const name = main.querySelector('h1').textContent
+
+        if(localStorage.getItem(name) === null){
+            localStorage.setItem(name, JSON.stringify([]))
+        }
+
+        let array = JSON.parse(localStorage.getItem(name))
+        if(!this.checkIfLegal(values, array)){
+            alert('this name already exists')
+            return false
+        }
+        array.push(values)
+        localStorage.setItem(name, JSON.stringify(array))
+        return true
+    }
+
+    static editLocalStorage(values, oldName, name){
+        if(name === 'Week' || name === 'Today'){
+            name = 'Home'
+        }
+        let array = JSON.parse(localStorage.getItem(name))
+        if(!this.checkIfLegal(values, array) && values.name !== oldName){
+            alert('this name already exists')
+            return false
+        }
+
+        for(let i = 0; i < array.length; i++){
+            if(array[i].name === oldName){
+                array[i].name = values.name
+                array[i].dueDate = values.dueDate
+                array[i].priority = values.priority
+                break
+            }
+        }
+
+        localStorage.setItem(name, JSON.stringify(array))
+        return true
+    }
+
+    static removeFromLocalStorage(taskName){
+        const main = document.querySelector('#main')
+        const name = main.querySelector('h1').textContent
+
+        let array = JSON.parse(localStorage.getItem(name))
+        for(let i = 0; i < array.length; i++){
+            if(array[i].name === taskName){
+                array.splice(i, 1)
+                break
+            }
+        }
+        localStorage.setItem(name, JSON.stringify(array))
+    }
+
+    static changeDone(taskName, bool){
+        const main = document.querySelector('#main')
+        let name = main.querySelector('h1').textContent
+        if(name === 'Today' || name === 'Week'){
+            name = 'Home'
+        }
+        
+        let array = JSON.parse(localStorage.getItem(name))
+        for(let i = 0; i < array.length; i++){
+            if(array[i].name === taskName){
+                array[i].done = bool
+                break
+            }
+        }
+        localStorage.setItem(name, JSON.stringify(array))
     }
 
     static createTaskElement(task){
@@ -33,12 +154,16 @@ export default class addTask{
         colorBar.style.backgroundColor = task.priorityColor()
 
         let checkBox = document.createElement('div')
-        checkBox.id = 'checkbox'
-        UI.initCheckBox(checkBox)
+        if(task.done){
+            checkBox.id = 'checkbox'            
+        }
+        else{            
+            checkBox.id = 'checkbox-checked'
+        }        
 
         let title = document.createElement('span')
         title.id = 'todo-item-title'
-        title.textContent = task.getName()
+        title.textContent = task.name
 
         let todoRight = document.createElement('span')
         todoRight.id = 'todo-item-right'
@@ -64,6 +189,9 @@ export default class addTask{
         todoItem.appendChild(checkBox)
         todoItem.appendChild(title)
         todoItem.appendChild(todoRight)
+        
+        UI.initCheckBox(checkBox)
+        checkBox.click()
         
         container.appendChild(todoItem)
     }
